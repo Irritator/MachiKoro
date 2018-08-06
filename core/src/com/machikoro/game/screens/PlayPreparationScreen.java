@@ -33,7 +33,16 @@ public class PlayPreparationScreen extends SimpleScreen{
         stage.addActor(playersNumberLabel);
         stage.addActor(buttonFactory.makeAddPlayerButton(new ButtonListener() {
             @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) { play.addPlayer(); }
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                play.addPlayer();
+            }
+        }));
+        stage.addActor(buttonFactory.makeStartButton(new ButtonListener() {
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                game.getManager().pop();
+                game.getManager().push(new PlayScreen(game, play));
+            }
         }));
     }
 

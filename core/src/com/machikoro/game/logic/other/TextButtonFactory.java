@@ -2,12 +2,15 @@ package com.machikoro.game.logic.other;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.Array;
 import com.machikoro.game.MachiKoro;
 import com.machikoro.game.screens.PlayPreparationScreen;
 import com.machikoro.game.screens.SettingsScreen;
 import com.machikoro.game.screens.TutorialScreen;
+
+import javax.xml.soap.Text;
 
 /**
  * Created by unknown on 24.06.2018.
@@ -21,6 +24,7 @@ public class TextButtonFactory {
     private static final String EXIT = "Exit";
     private static final String BACK = "Back";
     private static final String ADD_PLAYER = "Add Player";
+    private static final String START = "Start";
     //    private static final String BUTTON_IMAGE = "buttons/simple_button.pack";
     private static final float BACK_BUTTON_X = 20f;
     private static final float BACK_BUTTON_Y = 20f;
@@ -72,14 +76,20 @@ public class TextButtonFactory {
                 game.getManager().pop();
             }
         });
-        btn.setPosition(BACK_BUTTON_X, BACK_BUTTON_Y);
+        btn.setPosition(MachiKoro.width * 0.05f, MachiKoro.height * 0.05f);
         return btn;
     }
 
     public TextButton makeAddPlayerButton(ButtonListener listener) {
         TextButton addPlayerButton = makeSimpleButton(ADD_PLAYER, listener);
-        addPlayerButton.setPosition(MachiKoro.width * 0.8f, MachiKoro.height * 0.1f);
+        addPlayerButton.setPosition(MachiKoro.width * 0.7f, MachiKoro.height * 0.72f);
         return addPlayerButton;
+    }
+
+    public TextButton makeStartButton(ButtonListener listener) {
+        TextButton startButton = makeSimpleButton(START, listener);
+        startButton.setPosition(MachiKoro.width * 0.8f, MachiKoro.height * 0.05f);
+        return startButton;
     }
 
 

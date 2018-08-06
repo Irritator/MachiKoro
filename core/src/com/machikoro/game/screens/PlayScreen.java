@@ -1,6 +1,7 @@
 package com.machikoro.game.screens;
 
 import com.machikoro.game.MachiKoro;
+import com.machikoro.game.logic.other.Play;
 
 /**
  * Created by unknown on 02.02.2018.
@@ -8,7 +9,11 @@ import com.machikoro.game.MachiKoro;
 
 public class PlayScreen extends SimpleScreen {
 
-    public PlayScreen(MachiKoro game) {
+    private Play play;
+
+    public PlayScreen(MachiKoro game, Play play) {
         super(game);
+        this.play = play;
     }
+
 }
