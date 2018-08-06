@@ -3,13 +3,12 @@ package com.machikoro.game.logic.screens;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.utils.Array;
 import com.machikoro.game.MachiKoro;
+import com.machikoro.game.logic.other.ButtonListener;
 import com.machikoro.game.logic.other.Play;
-import com.machikoro.game.logic.other.Player;
-import com.machikoro.game.logic.other.PlayerAvatar;
 
 /**
  * Created by unknown on 02.02.2018.
@@ -30,19 +29,19 @@ public class PlayPreparationScreen extends SimpleScreen{
         super(game);
         play = new Play(stage);
         initNumOfPlayersLabel();
-        stage.addActor(buttonFactory.getBackButton());
+        stage.addActor(buttonFactory.makeBackButton());
         stage.addActor(playersNumberLabel);
-        Player player1 = new Player(1);
-        Group group1 = player1.getEditView();
-        group1.setPosition(MachiKoro.width / 2, MachiKoro.height / 2);
-        stage.addActor(group1);
-
+        stage.addActor(buttonFactory.makeAddPlayerButton(new ButtonListener() {
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) { play.addPlayer(); }
+        }));
     }
+
+
 
     private void initNumOfPlayersLabel(){
         playersNumberLabel = new Label(NUM_OF_PLAYERS + play.getNumOfPlayers(), getLabelStyle());
         playersNumberLabel.setPosition(MachiKoro.width * 0.02f, MachiKoro.height * 0.9f);
-
     }
 
     private Label.LabelStyle getLabelStyle(){

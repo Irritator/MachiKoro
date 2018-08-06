@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.machikoro.game.logic.other.ImageButtonFactory;
 import com.machikoro.game.logic.screens.MainMenuScreen;
 import com.machikoro.game.logic.screens.ScreenManager;
 
@@ -22,6 +23,7 @@ public class MachiKoro extends Game {
 	public static Texture background;
 	private ScreenManager manager;
 	private static Skin skin;
+	private static ImageButtonFactory imageButtonFactory;
 
 	@Override
 	public void create () {
@@ -33,6 +35,7 @@ public class MachiKoro extends Game {
 		background = new Texture(BACKGROUND);
 		skin = new Skin(Gdx.files.internal(SKIN_PATH));
 		manager = new ScreenManager(this);
+		imageButtonFactory = new ImageButtonFactory();
 //		Gdx.input.setCatchBackKey(true);
 
 	}
@@ -46,6 +49,7 @@ public class MachiKoro extends Game {
 	public void dispose () {
 		sb.dispose();
 		background.dispose();
+		skin.dispose();
 	}
 
 	public SpriteBatch getSb() {
@@ -59,4 +63,8 @@ public class MachiKoro extends Game {
 	public static Skin getSkin(){
 		return skin;
 	}
+
+	public static ImageButtonFactory getImageButtonFactory() {
+	    return imageButtonFactory;
+    }
 }

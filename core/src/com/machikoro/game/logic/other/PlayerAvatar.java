@@ -12,14 +12,13 @@ import java.io.File;
 public class PlayerAvatar extends SimpleActor {
 
     private static final String AVATARS_DIRECTORY = "avatars/";
-    private static final float AVATAR_SIZE = MachiKoro.width / 10;
     private Array<String> avatarPathArray;
     private int currentAvatarIndex;
 
     public PlayerAvatar(){
         initAvatarPathArray();
         setNewAvatar();
-        setSize(AVATAR_SIZE, AVATAR_SIZE);
+        setSize(Player.HEIGHT, Player.HEIGHT);
     }
 
     public void disableEditing(){
@@ -42,8 +41,6 @@ public class PlayerAvatar extends SimpleActor {
         for (File file : listOfFiles) {
             if (file.isFile()) {
                 avatarPathArray.add(AVATARS_DIRECTORY + file.getName());
-                System.out.println(file.getName());
-
             }
         }
     }

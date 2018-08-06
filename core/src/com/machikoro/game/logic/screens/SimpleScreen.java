@@ -40,6 +40,7 @@ public class SimpleScreen implements Screen {
         stage.draw();
 
     }
+
     @Override
     public void resize(int width, int height) {
 

@@ -18,6 +18,9 @@ public class Player {
 
     private static final String PLAYER = "Player";
     private static final String COINS = "Coins: ";
+    public static final float HEIGHT = MachiKoro.width / 13;
+    private static final float DEL_BTN_SIZE = HEIGHT / 2;
+
     private int coins;
     private Array<Card> industries;
     private Array<Landmark> landmarks;
@@ -26,7 +29,7 @@ public class Player {
     private TextField nameField;
     private Label nameLabel;
     private Label coinsLabel;
-    private ImageButton removeButton;
+    private ImageButton deleteButton;
 
 
     public Player(int index) {
@@ -35,22 +38,27 @@ public class Player {
         industries = new Array<Card>();
         landmarks = new Array<Landmark>();
         active = false;
+
         avatar = new PlayerAvatar();
         nameLabel = new Label(PLAYER + index, MachiKoro.getSkin());
         nameField = new TextField(PLAYER + index, MachiKoro.getSkin());
+        deleteButton = MachiKoro.getImageButtonFactory().makeDeletePlayerButton();
     }
 
-    public Group getEditView(){
+    public Group getEditViewGroup() {
         Group editGroup = new Group();
-        avatar.setPosition(0,0);
+        avatar.setPosition(0, 0);
         avatar.enableEditing();
         editGroup.addActor(avatar);
-        nameField.setPosition(avatar.getWidth() * 1.2f, MachiKoro.height * 0.03f);
+        nameField.setPosition(HEIGHT * 1.2f, MachiKoro.height * 0.03f);
         editGroup.addActor(nameField);
+        deleteButton.setPosition(nameField.getX() + nameField.getPrefWidth() * 1.1f, DEL_BTN_SIZE / 2);
+        deleteButton.setSize(DEL_BTN_SIZE, DEL_BTN_SIZE);
+        editGroup.addActor(deleteButton);
         return editGroup;
     }
 
-    public Group getStandardView(){
+    public Group getStandardViewGroup() {
         Group standardViewGroup = new Group();
         avatar.disableEditing();
         avatar.setPosition(0, 50f);
@@ -58,20 +66,24 @@ public class Player {
         nameLabel.setPosition(0, 20);
         nameLabel.setText(nameField.getText());
         standardViewGroup.addActor(nameLabel);
-        coinsLabel.setPosition(0,0);
+        coinsLabel.setPosition(0, 0);
         standardViewGroup.addActor(coinsLabel);
         return standardViewGroup;
     }
 
-    public boolean isActive(){
+    public float getHeight() {
+        return avatar.getHeight();
+    }
+
+    public boolean isActive() {
         return active;
     }
 
-    public void activate(){
+    public void activate() {
         active = true;
     }
 
-    public void deactivate(){
+    public void deactivate() {
         active = false;
     }
 
