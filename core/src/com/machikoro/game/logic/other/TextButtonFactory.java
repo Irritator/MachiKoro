@@ -5,11 +5,9 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.Array;
 import com.machikoro.game.MachiKoro;
-import com.machikoro.game.logic.screens.PlayPreparationScreen;
-import com.machikoro.game.logic.screens.SettingsScreen;
-import com.machikoro.game.logic.screens.TutorialScreen;
-
-import java.awt.event.ActionListener;
+import com.machikoro.game.screens.PlayPreparationScreen;
+import com.machikoro.game.screens.SettingsScreen;
+import com.machikoro.game.screens.TutorialScreen;
 
 /**
  * Created by unknown on 24.06.2018.

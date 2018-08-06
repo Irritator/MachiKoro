@@ -1,0 +1,61 @@
+
+menu_btns.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+exit-down
+  rotate: false
+  xy: 1, 47
+  size: 130, 44
+  orig: 130, 44
+  offset: 0, 0
+  index: -1
+exit-up
+  rotate: false
+  xy: 1, 1
+  size: 130, 44
+  orig: 130, 44
+  offset: 0, 0
+  index: -1
+rules-down
+  rotate: false
+  xy: 133, 47
+  size: 130, 44
+  orig: 130, 44
+  offset: 0, 0
+  index: -1
+rules-up
+  rotate: false
+  xy: 133, 1
+  size: 130, 44
+  orig: 130, 44
+  offset: 0, 0
+  index: -1
+settings-down
+  rotate: false
+  xy: 265, 47
+  size: 130, 44
+  orig: 130, 44
+  offset: 0, 0
+  index: -1
+settings-up
+  rotate: false
+  xy: 265, 1
+  size: 130, 44
+  orig: 130, 44
+  offset: 0, 0
+  index: -1
+start-down
+  rotate: false
+  xy: 397, 47
+  size: 130, 44
+  orig: 130, 44
+  offset: 0, 0
+  index: -1
+start-up
+  rotate: false
+  xy: 397, 1
+  size: 130, 44
+  orig: 130, 44
+  offset: 0, 0
+  index: -1
